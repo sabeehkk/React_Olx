@@ -21,14 +21,12 @@ function Login() {
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // User is logged in, redirect to the home page
         navigate('/');
       }
     });
 
     return () => unsubscribe(); // Clean up the subscription
   }, [firebase, navigate]);
-
 
   return (
     <div>
@@ -69,5 +67,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
