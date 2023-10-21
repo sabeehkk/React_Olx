@@ -11,7 +11,6 @@ function Login() {
 
   const {firebase} = useContext(firebaseContext)
   const navigate = useNavigate()
-
   const handleLogin =(e)=>{
     e.preventDefault()
     firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
@@ -20,7 +19,6 @@ function Login() {
       alert(error.message)
     })
   }
-  
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
